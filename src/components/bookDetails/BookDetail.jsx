@@ -51,12 +51,16 @@ function BookDetail() {
         } else {
           setBook(null);
         }
+        setLoading(false)
       } catch (error) {
         console.log(error);
         setLoading(false);
       }
     }
-  });
+    getBookDetails();
+  }, [id]);
+
+  console.log(book);
 
   return <div>BookDetail</div>;
 }
