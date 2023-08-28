@@ -15,7 +15,7 @@ function BookList() {
       //removing /works/ to get only id
       id: singleBook.id.replace("/works/", ""),
       cover_img: singleBook.cover
-        ? `https://covers.openlibrary.org/b/id/${singleBook.cover}-S.jpg`
+        ? `https://covers.openlibrary.org/b/id/${singleBook.cover}-L.jpg`
         : coverImg,
     };
   });
@@ -28,7 +28,7 @@ function BookList() {
         <div className="section-title">
           <h2>{resultTitle}</h2>
         </div>
-        <div className="booklist-content-grid">
+        <div className="booklist-content grid">
           {
             booksWithCovers.slice(0, 30).map((item, index) => {
               return (
