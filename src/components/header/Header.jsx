@@ -14,10 +14,8 @@ function Header() {
           </h2>
           <br />
           <p className="header-text fs-18 fw-3">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe
-            quasi eius sint eveniet iste fuga aperiam, veritatis atque illum
-            unde optio, repudiandae voluptatem labore, consequatur nihil ipsum
-            dolor reiciendis? Voluptatibus!
+            There are various books present in this library. <br /> You can get started by entering the name of the book you need to search for in the search bar below and you should get a result within minutes.
+           <br /> Thanks for checking out our library, we really hope you would enjoy using it.
           </p>
           <SearchForm />
         </div>
