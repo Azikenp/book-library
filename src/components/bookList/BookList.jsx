@@ -1,25 +1,45 @@
-import React from 'react'
-import { useGlobalContext } from '../../Context'
-import Loader from '../loader/Loader'
-import coverImg from '../../images/cover_not_found.jpg'
-import './BookList.css'
+import React from "react";
+import { useGlobalContext } from "../../Context";
+import Loader from "../loader/Loader";
+import coverImg from "../../images/cover_not_found.jpg";
+import "./BookList.css";
+import Book from "./Book";
 
 //https://covers.openlibrary.org/b/id/240727-S.jpg
 
 function BookList() {
-  const {books, loading, resultTitle} = useGlobalContext();
-  const booksWithCovers = books.map((singlebook) => {
-    return{
-      ...singlebook,
+  const { books, loading, resultTitle } = useGlobalContext();
+  const booksWithCovers = books.map((singleBook) => {
+    return {
+      ...singleBook,
       //removing /works/ to get only id
-    }
-  })
-
-
+      id: singleBook.id.replace("/works/", ""),
+      cover_img: singleBook.cover
+        ? `https://covers.openlibrary.org/b/id/${singleBook.cover}-S.jpg`
+        : coverImg,
+    };
+  });
+  console.log(booksWithCovers);
+  if(loading) return <Loader />
 
   return (
-    
-  )
+    <section className="booklist">
+      <div className="container">
+        <div className="section-title">
+          <h2>{resultTitle}</h2>
+        </div>
+        <div className="booklist-content-grid">
+          {
+            booksWithCovers.slice(0, 30).map((item, index) => {
+              return (
+                <Book key={index} {...item}/>
+              )
+            })
+          }
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default BookList
+export default BookList;
