@@ -62,7 +62,6 @@ function BookDetail() {
 
   if(loading) return <Loader />
 
-  console.log(book);
 
   return (
     <section className="book-details">
