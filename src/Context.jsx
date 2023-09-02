@@ -16,31 +16,37 @@ const AppProvider = ({ children }) => {
       const data = await response.json();
       const { docs } = data;
 
-      if(docs) {
+      if (docs) {
         const newBooks = docs.slice(0, 20).map((bookSingle) => {
-          const {key, author_name, cover_i, edition_count, first_publish_year, title} = bookSingle;
+          const {
+            key,
+            author_name,
+            cover_i,
+            edition_count,
+            first_publish_year,
+            title,
+          } = bookSingle;
           return {
-            id: key, 
+            id: key,
             author: author_name,
             cover: cover_i,
             edition_count: edition_count,
             first_publish_year: first_publish_year,
-            title: title
-          }
-        })
-        
+            title: title,
+          };
+        });
+
         setBooks(newBooks);
         if (newBooks.length > 0) {
-          setResultTitle("Your Search Result")
-        } else{
-          setResultTitle("No search result found!!")
+          setResultTitle("Your Search Result");
+        } else {
+          setResultTitle("No search result found!!");
         }
-
-      } else{
+      } else {
         setBooks([]);
-        setResultTitle("No search result found!!")
+        setResultTitle("No search result found!!");
       }
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
       setLoading(false);
     }
@@ -60,7 +66,7 @@ const AppProvider = ({ children }) => {
 };
 
 export const useGlobalContext = () => {
-  return useContext(AppContext)
-}
+  return useContext(AppContext);
+};
 
-export {AppContext, AppProvider};
+export { AppContext, AppProvider };

@@ -14,7 +14,7 @@ function Navbar() {
         <div className="brand-and-toggler flex flex-sb">
           <Link to="/" className="navbar-brand flex">
             <img src={logoImg} alt="site logo" />
-            <span className="text-uppercase fw-7 fs-24 ls-1">Bookub</span>
+            <span className="text-uppercase fw-7 fs-24 ls-1">Bookhub</span>
           </Link>
           <button
             type="button"

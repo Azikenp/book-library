@@ -20,7 +20,7 @@ function SearchForm() {
       setSearchTerm(searchText.current.value)
     }
 
-    navigate("/book")
+    navigate("/book");
   }
 
   return (
